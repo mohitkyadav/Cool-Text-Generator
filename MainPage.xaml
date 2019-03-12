@@ -9,6 +9,18 @@
     Background="{ThemeResource SystemControlChromeHighAcrylicWindowMediumBrush}">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
+        <StackPanel Height="100" Background="{ThemeResource SystemControlAccentDark2AcrylicElementAccentDark2MediumHighBrush}">
+            <TextBox x:Name="TextBoxMain" Text="Enter text here"
+                AutomationProperties.Name="TextBox"
+                FontSize="24"
+                Background="{ThemeResource SystemControlAccentDark2AcrylicElementAccentDark2MediumHighBrush}"
+                HorizontalAlignment="Center" Height="49" Width="485" MinWidth="500" Margin="0,50,0,0"
+                />
+        </StackPanel>  
     </Grid>
 </Page>
