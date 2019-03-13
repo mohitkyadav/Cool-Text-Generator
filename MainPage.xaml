@@ -15,11 +15,11 @@
         </Grid.RowDefinitions>
 
         <StackPanel Height="120" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}">
-            <TextBox x:Name="TextBoxMain" Text="Enter text here"
+            <TextBox x:Name="TextBoxMain" PlaceholderText="Enter text here"
                 AutomationProperties.Name="TextBox"
                 FontSize="24"
                 Background="{ThemeResource SystemControlAccentDark2AcrylicElementAccentDark2MediumHighBrush}"
-                HorizontalAlignment="Center" Height="49" Width="600" MinWidth="500" Margin="0,50,0,0"
+                HorizontalAlignment="Center" Height="49" Width="600" MinWidth="500" Margin="0,50,0,0" TextChanged="TextBoxMain_TextChanged"
                 />
         </StackPanel>  
     </Grid>

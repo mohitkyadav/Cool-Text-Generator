@@ -26,5 +26,10 @@ namespace Cool_Text_Generator
         {
             this.InitializeComponent();
         }
+
+        private void TextBoxMain_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine(TextBoxMain.Text);
+        }
     }
 }
