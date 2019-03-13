@@ -22,18 +22,14 @@
                 HorizontalAlignment="Center" Height="48" Width="800" MinWidth="600" Margin="0,50,0,0" TextChanged="TextBoxMain_TextChanged"
                 />
         </StackPanel>
-        <StackPanel 
+        
+        <Grid 
             HorizontalAlignment="Stretch" Grid.Row="1"
             VerticalAlignment="Stretch" Width="1280" MinWidth="1000" Height="Auto" MinHeight="400"
-            Orientation="Vertical" Padding="10,0,10,10">
+            Padding="10,0,10,10" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             
-            <StackPanel.ChildrenTransitions>
-                <TransitionCollection>
-                    <EntranceThemeTransition IsStaggeringEnabled="True" />
-                </TransitionCollection>
-            </StackPanel.ChildrenTransitions>
-
-            <ListView CanDragItems="True" CanReorderItems="True" AllowDrop="True" SelectionMode="Single">
+            
+            <ListView ScrollViewer.VerticalScrollMode="Enabled" ScrollViewer.VerticalScrollBarVisibility="Visible" MaxWidth="1080" CanDragItems="True" CanReorderItems="True" AllowDrop="True" SelectionMode="Single" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">
                 <ListView.ItemContainerTransitions>
                     <TransitionCollection>
                         <ContentThemeTransition />
@@ -41,7 +37,7 @@
                 </ListView.ItemContainerTransitions>
                 <ListViewItem
                     Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Margin="0,20,0,0" Padding="5,5,5,5" FontSize="28">
-                    <RichTextBlock Margin="0,10,0,10">
+                    <RichTextBlock Margin="0,10,0,10" HorizontalAlignment="Right">
                         <Paragraph>🍸⚽👢⚽_〽️🅰♓_🎵🅰〽️🎗_⚽🎵👢🍸4_🎐'〽️_🌀⚽🎵🎵🅰_🅱🎗🌜⚽〽️🎗_🌴♓🎗_🎋🎐🎵🌀_⚽🎏_🅿️🎐🌱🅰🌴🎗💲!</Paragraph>
                     </RichTextBlock>
                 </ListViewItem>
@@ -57,9 +53,33 @@
                         <Paragraph>𝔜𝔒𝔏𝔒</Paragraph>
                     </RichTextBlock>
                 </ListViewItem>
+                <ListViewItem
+                    Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Margin="0,20,0,0" Padding="5,5,5,5" FontSize="28">
+                    <RichTextBlock Margin="0,10,0,10">
+                        <Paragraph>𝔜𝔒𝔏𝔒</Paragraph>
+                    </RichTextBlock>
+                </ListViewItem>
+                <ListViewItem
+                    Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Margin="0,20,0,0" Padding="5,5,5,5" FontSize="28">
+                    <RichTextBlock Margin="0,10,0,10">
+                        <Paragraph>𝔜𝔒𝔏𝔒</Paragraph>
+                    </RichTextBlock>
+                </ListViewItem>
+                <ListViewItem
+                    Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Margin="0,20,0,0" Padding="5,5,5,5" FontSize="28">
+                    <RichTextBlock Margin="0,10,0,10">
+                        <Paragraph>𝔜𝔒𝔏𝔒</Paragraph>
+                    </RichTextBlock>
+                </ListViewItem>
+                <ListViewItem
+                    Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Margin="0,20,0,0" Padding="5,5,5,5" FontSize="28">
+                    <RichTextBlock Margin="0,10,0,10">
+                        <Paragraph>𝔜𝔒𝔏𝔒</Paragraph>
+                    </RichTextBlock>
+                </ListViewItem>
             </ListView>
 
-        </StackPanel>
+        </Grid>
 
     </Grid>
 </Page>
