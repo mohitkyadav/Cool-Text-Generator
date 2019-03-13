@@ -7,20 +7,59 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource SystemControlChromeHighAcrylicWindowMediumBrush}">
-
-    <Grid>
+    
+    <Grid MinWidth="600">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Height="120" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}">
+        <StackPanel Grid.Row="0" Height="120" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}">
             <TextBox x:Name="TextBoxMain" PlaceholderText="Enter text here"
                 AutomationProperties.Name="TextBox"
                 FontSize="24"
                 Background="{ThemeResource SystemControlAccentDark2AcrylicElementAccentDark2MediumHighBrush}"
-                HorizontalAlignment="Center" Height="49" Width="600" MinWidth="500" Margin="0,50,0,0" TextChanged="TextBoxMain_TextChanged"
+                HorizontalAlignment="Center" Height="48" Width="800" MinWidth="600" Margin="0,50,0,0" TextChanged="TextBoxMain_TextChanged"
                 />
-        </StackPanel>  
+        </StackPanel>
+        <StackPanel 
+            HorizontalAlignment="Stretch" Grid.Row="1"
+            VerticalAlignment="Stretch" Width="1280" MinWidth="1000" Height="Auto" MinHeight="400"
+            Orientation="Vertical" Padding="10,0,10,10">
+            
+            <StackPanel.ChildrenTransitions>
+                <TransitionCollection>
+                    <EntranceThemeTransition IsStaggeringEnabled="True" />
+                </TransitionCollection>
+            </StackPanel.ChildrenTransitions>
+
+            <ListView CanDragItems="True" CanReorderItems="True" AllowDrop="True" SelectionMode="Single">
+                <ListView.ItemContainerTransitions>
+                    <TransitionCollection>
+                        <ContentThemeTransition />
+                    </TransitionCollection>
+                </ListView.ItemContainerTransitions>
+                <ListViewItem
+                    Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Margin="0,20,0,0" Padding="5,5,5,5" FontSize="28">
+                    <RichTextBlock Margin="0,10,0,10">
+                        <Paragraph>🍸⚽👢⚽_〽️🅰♓_🎵🅰〽️🎗_⚽🎵👢🍸4_🎐'〽️_🌀⚽🎵🎵🅰_🅱🎗🌜⚽〽️🎗_🌴♓🎗_🎋🎐🎵🌀_⚽🎏_🅿️🎐🌱🅰🌴🎗💲!</Paragraph>
+                    </RichTextBlock>
+                </ListViewItem>
+                <ListViewItem
+                    Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Margin="0,20,0,0" Padding="5,5,5,5" FontSize="28">
+                    <RichTextBlock Margin="0,10,0,10">
+                        <Paragraph>y͓̽o͓̽l͓̽o͓̽</Paragraph>
+                    </RichTextBlock>
+                </ListViewItem>
+                <ListViewItem
+                    Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Margin="0,20,0,0" Padding="5,5,5,5" FontSize="28">
+                    <RichTextBlock Margin="0,10,0,10">
+                        <Paragraph>𝔜𝔒𝔏𝔒</Paragraph>
+                    </RichTextBlock>
+                </ListViewItem>
+            </ListView>
+
+        </StackPanel>
+
     </Grid>
 </Page>
