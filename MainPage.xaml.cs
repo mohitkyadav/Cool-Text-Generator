@@ -22,6 +22,8 @@ namespace Cool_Text_Generator
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private CoolNameAPI coolService = new CoolNameAPI();
+        private List<CoolName> coolNames = new List<CoolName>();
         public MainPage()
         {
             this.InitializeComponent();
@@ -29,7 +31,8 @@ namespace Cool_Text_Generator
 
         private void TextBoxMain_TextChanged(object sender, TextChangedEventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine(TextBoxMain.Text);
+            coolService.CoolifyAsync(TextBoxMain.Text, coolNames);
+            System.Diagnostics.Debug.WriteLine(coolNames.Count);
         }
     }
 }

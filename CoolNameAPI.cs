@@ -1,0 +1,51 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+namespace Cool_Text_Generator
+{
+    class CoolNameAPI
+    {
+        Windows.Web.Http.HttpClient httpClient = new Windows.Web.Http.HttpClient();
+        const string BaseURI = "https://cool-name-api.glitch.me/";
+        const string CoolServiceURI = "coolify?name=";
+        const string UncoolServiceURI = "uncoolify?name=";
+
+        public async void CoolifyAsync(string s, List<CoolName> coolNames)
+        {
+            Uri coolURI = new Uri(BaseURI + CoolServiceURI + s);
+            //List<CoolName> coolNames = new List<CoolName>();
+            Windows.Web.Http.HttpResponseMessage httpResponse = new Windows.Web.Http.HttpResponseMessage();
+            string httpResponseBody = "";
+            try
+            {
+                //Send the GET request
+                httpResponse = await httpClient.GetAsync(coolURI);
+                httpResponse.EnsureSuccessStatusCode();
+                httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+
+                JObject jsonObject = JObject.Parse(httpResponseBody);
+
+                foreach (var x in jsonObject)
+                {
+                    coolNames.Add(new CoolName(x.Key, x.Value.ToString()));
+                }
+            }
+            catch (Exception ex)
+            {
+                httpResponseBody = "Error: " + ex.HResult.ToString("X") + " Message: " + ex.Message;
+            }
+        }
+
+        public void Uncoolify(string s)
+        {
+            Uri uncoolURI = new Uri(BaseURI + UncoolServiceURI + s);
+            System.Diagnostics.Debug.WriteLine(uncoolURI);
+        }
+    }
+}

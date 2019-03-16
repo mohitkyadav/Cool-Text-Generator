@@ -36,7 +36,7 @@
                     </TransitionCollection>
                 </ListView.ItemContainerTransitions>
                 <ListViewItem
-                    Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Margin="0,20,0,0" Padding="5,5,5,5" FontSize="28">
+                    Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" HorizontalAlignment="Center" Margin="0,20,0,0" Padding="5,5,5,5" FontSize="28">
                     <RichTextBlock Margin="0,10,0,10" HorizontalAlignment="Right">
                         <Paragraph>🍸⚽👢⚽_〽️🅰♓_🎵🅰〽️🎗_⚽🎵👢🍸4_🎐'〽️_🌀⚽🎵🎵🅰_🅱🎗🌜⚽〽️🎗_🌴♓🎗_🎋🎐🎵🌀_⚽🎏_🅿️🎐🌱🅰🌴🎗💲!</Paragraph>
                     </RichTextBlock>
