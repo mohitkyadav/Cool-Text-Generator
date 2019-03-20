@@ -29,11 +29,12 @@ namespace Cool_Text_Generator
         {
             this.InitializeComponent();
             CoolNameList.ItemsSource = coolNames;
+            coolNames.Add(new CoolName("Yo", "Lo"));
         }
 
         private void TextBoxMain_TextChanged(object sender, TextChangedEventArgs e)
         {
-            coolNames.Add(new CoolName("Yo", "Lo"));
+            coolNames.Clear();
             coolService.CoolifyAsync(TextBoxMain.Text, coolNames);
             System.Diagnostics.Debug.WriteLine(coolNames.Count);
         }
