@@ -37,8 +37,11 @@
                 </ListView.ItemContainerTransitions>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding Name}" Margin="0,10,0,10" HorizontalAlignment="Right">
-                        </TextBlock>
+                        <RichTextBlock SelectionHighlightColor="Green">
+                            <Paragraph>
+                                <Run Text="{Binding Name}"></Run> ,
+                            </Paragraph>
+                        </RichTextBlock>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
