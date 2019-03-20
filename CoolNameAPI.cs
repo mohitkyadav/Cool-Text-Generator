@@ -31,7 +31,7 @@ namespace Cool_Text_Generator
                 httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
 
                 JObject jsonObject = JObject.Parse(httpResponseBody);
-
+                coolNames.Clear();
                 foreach (var x in jsonObject)
                 {
                     coolNames.Add(new CoolName(x.Key, x.Value.ToString()));
