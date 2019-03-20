@@ -37,7 +37,7 @@
                 </ListView.ItemContainerTransitions>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <RichTextBlock Padding="5,10,5,10" SelectionHighlightColor="Green">
+                        <RichTextBlock PointerEntered="CoolTextBlock_PointerEntered" PointerExited="RichTextBlock_PointerExited" Padding="5,10,5,15" SelectionHighlightColor="Green">
                             <Paragraph FontSize="28">
                                 <Run Text="{Binding Name}"></Run>
                             </Paragraph>

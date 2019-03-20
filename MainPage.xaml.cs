@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Composition;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -25,6 +26,7 @@ namespace Cool_Text_Generator
     {
         private CoolNameAPI coolService = new CoolNameAPI();
         private ObservableCollection<CoolName> coolNames = new ObservableCollection<CoolName>();
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -37,6 +39,32 @@ namespace Cool_Text_Generator
             // coolNames.Clear();
             coolService.CoolifyAsync(TextBoxMain.Text, coolNames);
             System.Diagnostics.Debug.WriteLine(coolNames.Count);
+        }
+
+        Compositor _compositor = Window.Current.Compositor;
+        SpringVector3NaturalMotionAnimation _springAnimation;
+
+        private void CreateOrUpdateSpringAnimation(float finalValue)
+        {
+            if (_springAnimation == null)
+            {
+                _springAnimation = _compositor.CreateSpringVector3Animation();
+                _springAnimation.Target = "Scale";
+            }
+
+            _springAnimation.FinalValue = new System.Numerics.Vector3(finalValue);
+        }
+
+        private void CoolTextBlock_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            CreateOrUpdateSpringAnimation(1.1f);
+            (sender as UIElement).StartAnimation(_springAnimation);
+        }
+
+        private void RichTextBlock_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            CreateOrUpdateSpringAnimation(1.0f);
+            (sender as UIElement).StartAnimation(_springAnimation);
         }
     }
 }
