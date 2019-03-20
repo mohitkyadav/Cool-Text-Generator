@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace Cool_Text_Generator
         const string CoolServiceURI = "coolify?name=";
         const string UncoolServiceURI = "uncoolify?name=";
 
-        public async void CoolifyAsync(string s, List<CoolName> coolNames)
+        public async void CoolifyAsync(string s, ObservableCollection<CoolName> coolNames)
         {
             Uri coolURI = new Uri(BaseURI + CoolServiceURI + s);
             //List<CoolName> coolNames = new List<CoolName>();

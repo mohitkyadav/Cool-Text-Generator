@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -23,14 +24,16 @@ namespace Cool_Text_Generator
     public sealed partial class MainPage : Page
     {
         private CoolNameAPI coolService = new CoolNameAPI();
-        private List<CoolName> coolNames = new List<CoolName>();
+        private ObservableCollection<CoolName> coolNames = new ObservableCollection<CoolName>();
         public MainPage()
         {
             this.InitializeComponent();
+            CoolNameList.ItemsSource = coolNames;
         }
 
         private void TextBoxMain_TextChanged(object sender, TextChangedEventArgs e)
         {
+            coolNames.Add(new CoolName("Yo", "Lo"));
             coolService.CoolifyAsync(TextBoxMain.Text, coolNames);
             System.Diagnostics.Debug.WriteLine(coolNames.Count);
         }
