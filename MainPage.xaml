@@ -5,6 +5,7 @@
     xmlns:local="using:Cool_Text_Generator"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d"
     Background="{ThemeResource SystemControlChromeHighAcrylicWindowMediumBrush}">
     
@@ -13,7 +14,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
+        
         <StackPanel Grid.Row="0" Height="120" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}">
             <TextBox x:Name="TextBoxMain" PlaceholderText="Enter text here"
                 AutomationProperties.Name="TextBox"
@@ -22,13 +23,17 @@
                 HorizontalAlignment="Center" Height="48" Width="800" MinWidth="600" Margin="0,50,0,0" TextChanged="TextBoxMain_TextChanged"
                 />
         </StackPanel>
-        
+
         <Grid 
             HorizontalAlignment="Stretch" Grid.Row="1"
             VerticalAlignment="Stretch" Width="1280" MinWidth="1000" Height="Auto" MinHeight="400"
             Padding="10,0,10,10" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-            
-            
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition MinWidth="300"></ColumnDefinition>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
             <ListView x:Name="CoolNameList" ScrollViewer.VerticalScrollMode="Enabled" ScrollViewer.VerticalScrollBarVisibility="Visible" MaxWidth="1080" CanDragItems="True" CanReorderItems="True" AllowDrop="True" SelectionMode="Single" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">
                 <ListView.ItemContainerTransitions>
                     <TransitionCollection>
@@ -47,6 +52,5 @@
             </ListView>
 
         </Grid>
-
     </Grid>
 </Page>
