@@ -31,14 +31,22 @@ namespace Cool_Text_Generator
         {
             this.InitializeComponent();
             CoolNameList.ItemsSource = coolNames;
-            coolNames.Add(new CoolName("How to use?", "Just enter text in the box above 🌝"));
+            coolNames.Add(new CoolName("How to use?", "Just enter text in the box above 😄"));
         }
 
         private void TextBoxMain_TextChanged(object sender, TextChangedEventArgs e)
         {
             // coolNames.Clear();
-            coolService.CoolifyAsync(TextBoxMain.Text, coolNames);
-            System.Diagnostics.Debug.WriteLine(coolNames.Count);
+            if(TextBoxMain.Text == "")
+            {
+                coolNames.Clear();
+                coolNames.Add(new CoolName("How to use?", "Just enter text in the box above 😄"));
+            }
+            else
+            {
+                coolService.CoolifyAsync(TextBoxMain.Text, coolNames);
+                // System.Diagnostics.Debug.WriteLine(coolNames.Count);
+            }
         }
 
         Compositor _compositor = Window.Current.Compositor;
