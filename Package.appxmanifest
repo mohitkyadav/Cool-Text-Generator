@@ -9,7 +9,7 @@
   <Identity
     Name="41296MohitK.Yadav.CoolTextGen"
     Publisher="CN=E084BD99-5E29-49DA-A294-C50E784A81F3"
-    Version="0.1.0.0" />
+    Version="0.1.4.0" />
 
   <mp:PhoneIdentity PhoneProductId="12d09cdc-9824-466f-a535-57e99547b732" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 

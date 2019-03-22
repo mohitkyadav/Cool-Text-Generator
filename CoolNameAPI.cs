@@ -39,11 +39,11 @@ namespace Cool_Text_Generator
             }
             catch (Exception ex)
             {
-                httpResponseBody = "Error: " + ex.HResult.ToString("X") + " Message: " + ex.Message;
                 coolNames.Clear();
                 coolNames.Add(new CoolName("Error", "Maybe the remote server's down 😭"));
                 coolNames.Add(new CoolName("Error", "Check if https://cool-name-api.glitch.me/ is working."));
                 coolNames.Add(new CoolName("Error", "Check your internet connection"));
+                coolNames.Add(new CoolName("Error", ex.Message.ToString()));
             }
         }
 
