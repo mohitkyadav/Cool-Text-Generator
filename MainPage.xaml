@@ -19,7 +19,7 @@
             Height="120" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}"
             Margin="0,0,0,0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="800"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <TextBox x:Name="TextBoxMain" PlaceholderText="Enter text here"
@@ -28,7 +28,7 @@
                 Grid.Column="0"
                 KeyDown="TextBoxMain_KeyDown"
                 Background="{ThemeResource SystemControlAccentDark2AcrylicElementAccentDark2MediumHighBrush}"
-                HorizontalAlignment="Left" Height="48" Width="800" MinWidth="600" VerticalAlignment="Center" Margin="20,0,0,0"
+                HorizontalAlignment="Right" Height="48" Width="700" MinWidth="600" VerticalAlignment="Center" Margin="20,0,0,0" HorizontalContentAlignment="Center"
                 />
             <Button Click="CoolButton_Click" x:Name="CoolButton" Grid.Column="1" Content="Click to 🌜⚽⚽👢" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="50,0,0,0"/>
         </Grid>
