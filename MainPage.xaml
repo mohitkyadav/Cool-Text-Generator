@@ -5,24 +5,33 @@
     xmlns:local="using:Cool_Text_Generator"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d"
     Background="{ThemeResource SystemControlChromeHighAcrylicWindowMediumBrush}">
-    
+
     <Grid MinWidth="600">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
-        <StackPanel Grid.Row="0" Height="120" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}">
+
+        <Grid 
+            HorizontalAlignment="Stretch" Grid.Row="0"
+            Height="120" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}"
+            Margin="0,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
             <TextBox x:Name="TextBoxMain" PlaceholderText="Enter text here"
                 AutomationProperties.Name="TextBox"
                 FontSize="24"
+                Grid.Column="0"
+                KeyDown="TextBoxMain_KeyDown"
                 Background="{ThemeResource SystemControlAccentDark2AcrylicElementAccentDark2MediumHighBrush}"
-                HorizontalAlignment="Center" Height="48" Width="800" MinWidth="600" Margin="0,50,0,0" TextChanged="TextBoxMain_TextChanged"
+                HorizontalAlignment="Left" Height="48" Width="800" MinWidth="600" VerticalAlignment="Center" Margin="20,0,0,0"
                 />
-        </StackPanel>
+            <Button Click="CoolButton_Click" x:Name="CoolButton" Grid.Column="1" Content="Click to 🌜⚽⚽👢" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="50,0,0,0"/>
+        </Grid>
 
         <Grid 
             HorizontalAlignment="Stretch" Grid.Row="1"

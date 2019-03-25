@@ -34,21 +34,6 @@ namespace Cool_Text_Generator
             coolNames.Add(new CoolName("How to use?", "Just enter text in the box above 😄"));
         }
 
-        private void TextBoxMain_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            // coolNames.Clear();
-            if(TextBoxMain.Text == "")
-            {
-                coolNames.Clear();
-                coolNames.Add(new CoolName("How to use?", "Just enter text in the box above 😄"));
-            }
-            else
-            {
-                coolService.CoolifyAsync(TextBoxMain.Text, coolNames);
-                // System.Diagnostics.Debug.WriteLine(coolNames.Count);
-            }
-        }
-
         Compositor _compositor = Window.Current.Compositor;
         SpringVector3NaturalMotionAnimation _springAnimation;
 
@@ -73,6 +58,35 @@ namespace Cool_Text_Generator
         {
             CreateOrUpdateSpringAnimation(1.0f);
             (sender as UIElement).StartAnimation(_springAnimation);
+        }
+
+        private void CoolButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (TextBoxMain.Text == "")
+            {
+                coolNames.Clear();
+                coolNames.Add(new CoolName("How to use?", "Just enter text in the box above 😄"));
+            }
+            else
+            {
+                coolService.CoolifyAsync(TextBoxMain.Text, coolNames);
+            }
+        }
+
+        private void TextBoxMain_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key.ToString() == "Enter")
+            {
+                if (TextBoxMain.Text == "")
+                {
+                    coolNames.Clear();
+                    coolNames.Add(new CoolName("How to use?", "Just enter text in the box above 😄"));
+                }
+                else
+                {
+                    coolService.CoolifyAsync(TextBoxMain.Text, coolNames);
+                }
+            }
         }
     }
 }
