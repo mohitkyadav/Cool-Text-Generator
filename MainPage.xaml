@@ -43,7 +43,7 @@
                 <ColumnDefinition Width="100"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <ListView x:Name="CoolNameList" ScrollViewer.VerticalScrollMode="Enabled" ScrollViewer.VerticalScrollBarVisibility="Visible" MaxWidth="1080" CanDragItems="True" CanReorderItems="True" AllowDrop="True" SelectionMode="Single" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">
+            <ListView x:Name="CoolNameList" ScrollViewer.VerticalScrollMode="Enabled" ScrollViewer.VerticalScrollBarVisibility="Visible" MaxWidth="1080" CanDragItems="False" CanReorderItems="False" AllowDrop="True" SelectionMode="None" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">
                 <ListView.ItemContainerTransitions>
                     <TransitionCollection>
                         <ContentThemeTransition />
