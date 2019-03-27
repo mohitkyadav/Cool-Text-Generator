@@ -9,34 +9,53 @@
     Background="{ThemeResource SystemControlChromeHighAcrylicWindowMediumBrush}">
 
     <Grid MinWidth="600">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="WindowState">
+                <VisualState x:Name="WideScreen">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="900"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="HeaderStackPanel.Orientation" Value="Horizontal"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="SmallScreen">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="TextBoxMain.Width" Value="400"/>
+                        <Setter Target="TextBoxMain.Margin" Value="5,10,30,5"/>
+                        <Setter Target="HeaderStackPanel.Orientation" Value="Vertical"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto" MinHeight="144"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Grid 
-            HorizontalAlignment="Stretch" Grid.Row="0"
+        <StackPanel
+            x:Name="HeaderStackPanel"
+            Orientation="Horizontal"
             Height="120" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}"
-            Margin="0,0,0,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="800"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+            VerticalAlignment="Top"
+            Grid.Row="0"
+            Margin="0,30,0,0" Grid.RowSpan="2">
             <TextBox x:Name="TextBoxMain" PlaceholderText="Enter text here"
                 AutomationProperties.Name="TextBox"
                 FontSize="24"
-                Grid.Column="0"
                 KeyDown="TextBoxMain_KeyDown"
                 Background="{ThemeResource SystemControlAccentDark2AcrylicElementAccentDark2MediumHighBrush}"
-                HorizontalAlignment="Right" Height="48" Width="700" MinWidth="600" VerticalAlignment="Center" Margin="20,0,0,0" HorizontalContentAlignment="Center"
+                HorizontalAlignment="Center" Height="48" Width="650" VerticalAlignment="Center" Margin="20,10,20,5" HorizontalContentAlignment="Center" Padding="5,5,5,5"
                 />
-            <Button Click="CoolButton_Click" x:Name="CoolButton" Grid.Column="1" Content="Click to 🌜⚽⚽👢" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="50,0,0,0"/>
-        </Grid>
+            <Button Click="CoolButton_Click" x:Name="CoolButton" Content="Click to 🌜⚽⚽👢" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,10,10,5"/>
+        </StackPanel>
 
-        <Grid 
-            HorizontalAlignment="Stretch" Grid.Row="1"
-            VerticalAlignment="Stretch" Width="1280" MinWidth="1000" Height="Auto" MinHeight="400"
-            Padding="10,0,10,10" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+        <Grid Grid.Row="1" MinWidth="1000" Height="Auto" MinHeight="400"
+            Padding="10,0,10,10" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0,1,0,0">
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition MinWidth="300"></ColumnDefinition>
