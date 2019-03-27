@@ -55,14 +55,22 @@
         </StackPanel>
 
         <Grid Grid.Row="1" MinWidth="1000" Height="Auto" MinHeight="400"
-            Padding="10,0,10,10" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0,1,0,0">
+              Padding="10,0,10,10" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0,1,0,0">
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition MinWidth="300"></ColumnDefinition>
                 <ColumnDefinition Width="100"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <ListView x:Name="CoolNameList" ScrollViewer.VerticalScrollMode="Enabled" ScrollViewer.VerticalScrollBarVisibility="Visible" MaxWidth="1080" CanDragItems="False" CanReorderItems="False" AllowDrop="True" SelectionMode="None" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">
+            <ListView x:Name="CoolNameList"
+                      ScrollViewer.VerticalScrollMode="Enabled"
+                      ScrollViewer.VerticalScrollBarVisibility="Visible"
+                      MaxWidth="1080" CanDragItems="False"
+                      CanReorderItems="False"
+                      AllowDrop="True"
+                      SelectionMode="Single"
+                      HorizontalAlignment="Stretch"
+                      HorizontalContentAlignment="Center">
                 <ListView.ItemContainerTransitions>
                     <TransitionCollection>
                         <ContentThemeTransition />
@@ -70,7 +78,7 @@
                 </ListView.ItemContainerTransitions>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <RichTextBlock PointerEntered="CoolTextBlock_PointerEntered" PointerExited="RichTextBlock_PointerExited" Padding="5,10,5,15" SelectionHighlightColor="Green">
+                        <RichTextBlock x:Name="CoolTextBlock" Padding="5,10,5,15" SelectionHighlightColor="Green">
                             <Paragraph FontSize="28">
                                 <Run Text="{Binding Name}"></Run>
                             </Paragraph>

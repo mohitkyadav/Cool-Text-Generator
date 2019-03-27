@@ -47,14 +47,16 @@ namespace Cool_Text_Generator
 
             _springAnimation.FinalValue = new System.Numerics.Vector3(finalValue);
         }
-
+        
+        // TODO => animaiton
         private void CoolTextBlock_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
             CreateOrUpdateSpringAnimation(1.1f);
             (sender as UIElement).StartAnimation(_springAnimation);
         }
-
-        private void RichTextBlock_PointerExited(object sender, PointerRoutedEventArgs e)
+        
+        // TODO => animaiton
+        private void CoolTextBlock_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             CreateOrUpdateSpringAnimation(1.0f);
             (sender as UIElement).StartAnimation(_springAnimation);
