@@ -6,11 +6,27 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource SystemControlChromeHighAcrylicWindowMediumBrush}">
+    Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}">
 
     <Grid MinWidth="600">
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="WindowState">
+                <VisualStateGroup.Transitions>
+                    <VisualTransition GeneratedDuration="00:00:00">
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="grid" Storyboard.TargetProperty="(FrameworkElement.HorizontalAlignment)">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="Stretch"/>
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="grid" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:00">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <Thickness>0,0,0,0</Thickness>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualTransition>
+                </VisualStateGroup.Transitions>
                 <VisualState x:Name="WideScreen">
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="900"/>
@@ -24,14 +40,21 @@
                         <AdaptiveTrigger MinWindowWidth="0"/>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="TextBoxMain.Width" Value="400"/>
+                        <Setter Target="TextBoxMain.Width" Value="360"/>
                         <Setter Target="TextBoxMain.Margin" Value="5,10,30,5"/>
+                        <Setter Target="CoolNameList.MaxWidth" Value="480"/>
                         <Setter Target="HeaderStackPanel.Orientation" Value="Vertical"/>
+                        <Setter Target="RecentCoolNameList.Visibility" Value="Collapsed"/>
+                        <Setter Target="TextBoxMain.(FrameworkElement.Margin)">
+                            <Setter.Value>
+                                <Thickness>0,10,0,5</Thickness>
+                            </Setter.Value>
+                        </Setter>
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        
+
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" MinHeight="144"/>
             <RowDefinition/>
@@ -40,10 +63,10 @@
         <StackPanel
             x:Name="HeaderStackPanel"
             Orientation="Horizontal"
-            Height="120" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}"
+            Height="120"
             VerticalAlignment="Top"
             Grid.Row="0"
-            Margin="0,30,0,0" Grid.RowSpan="2">
+            Margin="0,30,0,0" Grid.RowSpan="2" HorizontalAlignment="Center" Width="900">
             <TextBox x:Name="TextBoxMain" PlaceholderText="Enter text here"
                 AutomationProperties.Name="TextBox"
                 FontSize="24"
@@ -54,23 +77,25 @@
             <Button Click="CoolButton_Click" x:Name="CoolButton" Content="Click to 🌜⚽⚽👢" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,10,10,5"/>
         </StackPanel>
 
-        <Grid Grid.Row="1" MinWidth="1000" Height="Auto" MinHeight="400"
+        <Grid x:Name="grid" Grid.Row="1" MinWidth="1000" Height="Auto" MinHeight="400"
               Padding="10,0,10,10" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0,1,0,0">
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition MinWidth="300"></ColumnDefinition>
-                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition Width="Auto" MinWidth="600"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
+
 
             <ListView x:Name="CoolNameList"
                       ScrollViewer.VerticalScrollMode="Enabled"
                       ScrollViewer.VerticalScrollBarVisibility="Visible"
-                      MaxWidth="1080" CanDragItems="False"
+                      MaxWidth="700" CanDragItems="False"
                       CanReorderItems="False"
                       AllowDrop="True"
+                      Grid.Column="0"
                       SelectionMode="Single"
-                      HorizontalAlignment="Stretch"
-                      HorizontalContentAlignment="Center">
+                      HorizontalAlignment="Left"
+                      HorizontalContentAlignment="Center" MinWidth="400">
                 <ListView.ItemContainerTransitions>
                     <TransitionCollection>
                         <ContentThemeTransition />
@@ -86,7 +111,32 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-
+            <ListView x:Name="RecentCoolNameList"
+                      ScrollViewer.VerticalScrollMode="Enabled"
+                      ScrollViewer.VerticalScrollBarVisibility="Visible"
+                      MaxWidth="1080" CanDragItems="False"
+                      CanReorderItems="False"
+                      AllowDrop="True"
+                      Visibility="Visible"
+                      Grid.Column="1"
+                      SelectionMode="Single"
+                      HorizontalAlignment="Left"
+                      HorizontalContentAlignment="Center" Margin="0,5,0,5" MinWidth="250">
+                <ListView.ItemContainerTransitions>
+                    <TransitionCollection>
+                        <ContentThemeTransition />
+                    </TransitionCollection>
+                </ListView.ItemContainerTransitions>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <RichTextBlock x:Name="RecentCoolRequest" Padding="5,10,5,15" SelectionHighlightColor="Green">
+                            <Paragraph FontSize="28">
+                                <Run Text="{Binding}"/>
+                            </Paragraph>
+                        </RichTextBlock>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </Grid>
     </Grid>
 </Page>

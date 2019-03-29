@@ -26,12 +26,15 @@ namespace Cool_Text_Generator
     {
         private CoolNameAPI coolService = new CoolNameAPI();
         private ObservableCollection<CoolName> coolNames = new ObservableCollection<CoolName>();
+        private ObservableCollection<string> recentCoolNames = new ObservableCollection<string>();
 
         public MainPage()
         {
             this.InitializeComponent();
             CoolNameList.ItemsSource = coolNames;
+            RecentCoolNameList.ItemsSource = recentCoolNames;
             coolNames.Add(new CoolName("How to use?", "Just enter text in the box above 😄"));
+            recentCoolNames.Add("Recent 🕞");
         }
 
         Compositor _compositor = Window.Current.Compositor;
@@ -72,6 +75,7 @@ namespace Cool_Text_Generator
             else
             {
                 coolService.CoolifyAsync(TextBoxMain.Text, coolNames);
+                recentCoolNames.Add(TextBoxMain.Text);
             }
         }
 
@@ -87,6 +91,7 @@ namespace Cool_Text_Generator
                 else
                 {
                     coolService.CoolifyAsync(TextBoxMain.Text, coolNames);
+                    recentCoolNames.Add(TextBoxMain.Text);
                 }
             }
         }
