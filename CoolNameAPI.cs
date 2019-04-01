@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Windows.UI.Xaml.Controls;
 
 namespace Cool_Text_Generator
 {
@@ -17,7 +18,7 @@ namespace Cool_Text_Generator
         const string CoolServiceURI = "coolify?name=";
         const string UncoolServiceURI = "uncoolify?name=";
 
-        public async void CoolifyAsync(string s, ObservableCollection<CoolName> coolNames)
+        public async void CoolifyAsync(string s, ObservableCollection<CoolName> coolNames, ProgressBar progbar)
         {
             Uri coolURI = new Uri(BaseURI + CoolServiceURI + s);
             //List<CoolName> coolNames = new List<CoolName>();
@@ -36,6 +37,7 @@ namespace Cool_Text_Generator
                 {
                     coolNames.Add(new CoolName(x.Key, x.Value.ToString()));
                 }
+                progbar.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
             }
             catch (Exception ex)
             {
@@ -44,6 +46,7 @@ namespace Cool_Text_Generator
                 coolNames.Add(new CoolName("Error", "Check if https://cool-name-api.glitch.me/ is working."));
                 coolNames.Add(new CoolName("Error", "Check your internet connection"));
                 coolNames.Add(new CoolName("Error", ex.Message.ToString()));
+                progbar.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
             }
         }
 

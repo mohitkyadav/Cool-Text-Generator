@@ -65,6 +65,16 @@ namespace Cool_Text_Generator
             (sender as UIElement).StartAnimation(_springAnimation);
         }
 
+        private void DisplayProgressBar()
+        {
+            MainLoadingBar.Visibility = Visibility.Visible;
+        }
+
+        private void HideProgressBar()
+        {
+            MainLoadingBar.Visibility = Visibility.Collapsed;
+        }
+
         private void CoolButton_Click(object sender, RoutedEventArgs e)
         {
             if (TextBoxMain.Text == "")
@@ -74,7 +84,8 @@ namespace Cool_Text_Generator
             }
             else
             {
-                coolService.CoolifyAsync(TextBoxMain.Text, coolNames);
+                DisplayProgressBar();
+                coolService.CoolifyAsync(TextBoxMain.Text, coolNames, MainLoadingBar);
                 recentCoolNames.Add(TextBoxMain.Text);
             }
         }
@@ -90,7 +101,8 @@ namespace Cool_Text_Generator
                 }
                 else
                 {
-                    coolService.CoolifyAsync(TextBoxMain.Text, coolNames);
+                    DisplayProgressBar();
+                    coolService.CoolifyAsync(TextBoxMain.Text, coolNames, MainLoadingBar);
                     recentCoolNames.Add(TextBoxMain.Text);
                 }
             }

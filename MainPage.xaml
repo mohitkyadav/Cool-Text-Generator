@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}">
 
-    <Grid MinWidth="600">
+    <Grid MinWidth="600" Padding="-30,0,0,0">
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="WindowState">
                 <VisualStateGroup.Transitions>
@@ -57,6 +57,7 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" MinHeight="144"/>
+            <RowDefinition Height="10" MinHeight="10"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
@@ -75,9 +76,12 @@
                 HorizontalAlignment="Center" Height="48" Width="650" VerticalAlignment="Center" Margin="20,10,20,5" HorizontalContentAlignment="Center" Padding="5,5,5,5"
                 />
             <Button Click="CoolButton_Click" x:Name="CoolButton" Content="Click to 🌜⚽⚽👢" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,10,10,5"/>
+        
         </StackPanel>
+        
+        <ProgressBar x:Name="MainLoadingBar" Grid.Row="1" Width="400" Visibility="Collapsed" IsIndeterminate="True" ShowPaused="False" ShowError="False" Foreground="#FFF6922F" HorizontalAlignment="Center" VerticalAlignment="Top" />
 
-        <Grid x:Name="grid" Grid.Row="1" MinWidth="1000" Height="Auto" MinHeight="400"
+        <Grid x:Name="grid" Grid.Row="2" MinWidth="1000" Height="Auto" MinHeight="400"
               Padding="10,0,10,10" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0,1,0,0" HorizontalAlignment="Center" Width="900">
 
             <Grid.ColumnDefinitions>
@@ -96,7 +100,7 @@
                       Grid.Column="0"
                       SelectionMode="Single"
                       HorizontalAlignment="Left"
-                      HorizontalContentAlignment="Center" MinWidth="400" Margin="15,0,0,65" Width="420">
+                      HorizontalContentAlignment="Center" MinWidth="400" Margin="25,0,0,75" Width="475">
                 <ListView.ItemContainerTransitions>
                     <TransitionCollection>
                         <ContentThemeTransition />
