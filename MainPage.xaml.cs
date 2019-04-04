@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.ApplicationModel.DataTransfer;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Composition;
@@ -90,6 +91,13 @@ namespace Cool_Text_Generator
             }
         }
 
+        private void CopyCoolName_Click(object sender, RoutedEventArgs e)
+        {
+            var dataPackage = new DataPackage();
+            dataPackage.SetText(((Button)sender).Tag.ToString());
+            Windows.ApplicationModel.DataTransfer.Clipboard.SetContent(dataPackage);
+        }
+
         private void TextBoxMain_KeyDown(object sender, KeyRoutedEventArgs e)
         {
             if (e.Key.ToString() == "Enter")
@@ -107,5 +115,6 @@ namespace Cool_Text_Generator
                 }
             }
         }
+
     }
 }
