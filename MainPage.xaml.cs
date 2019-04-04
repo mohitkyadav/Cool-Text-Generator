@@ -76,6 +76,20 @@ namespace Cool_Text_Generator
             MainLoadingBar.Visibility = Visibility.Collapsed;
         }
 
+        private void CallCool(string s)
+        {
+            DisplayProgressBar();
+            coolService.CoolifyAsync(s, coolNames, MainLoadingBar);
+            foreach (var item in recentCoolNames)
+            {
+                if(item.ToString() == s)
+                {
+                    return;
+                }
+            }
+            recentCoolNames.Add(s);
+        }
+
         private void CoolButton_Click(object sender, RoutedEventArgs e)
         {
             if (TextBoxMain.Text == "")
@@ -85,9 +99,7 @@ namespace Cool_Text_Generator
             }
             else
             {
-                DisplayProgressBar();
-                coolService.CoolifyAsync(TextBoxMain.Text, coolNames, MainLoadingBar);
-                recentCoolNames.Add(TextBoxMain.Text);
+                CallCool(TextBoxMain.Text);
             }
         }
 
@@ -109,12 +121,14 @@ namespace Cool_Text_Generator
                 }
                 else
                 {
-                    DisplayProgressBar();
-                    coolService.CoolifyAsync(TextBoxMain.Text, coolNames, MainLoadingBar);
-                    recentCoolNames.Add(TextBoxMain.Text);
+                    CallCool(TextBoxMain.Text);
                 }
             }
         }
 
+        private void ReCool_Click(object sender, RoutedEventArgs e)
+        {
+            CallCool(((Button)sender).Tag.ToString());
+        }
     }
 }

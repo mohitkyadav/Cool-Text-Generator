@@ -89,8 +89,6 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-
-
             <ListView x:Name="CoolNameList"
                       ScrollViewer.VerticalScrollMode="Enabled"
                       ScrollViewer.VerticalScrollBarVisibility="Visible"
@@ -139,11 +137,16 @@
                 </ListView.ItemContainerTransitions>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <RichTextBlock x:Name="RecentCoolRequest" Padding="5,10,5,15" SelectionHighlightColor="Green">
-                            <Paragraph FontSize="28">
-                                <Run Text="{Binding}"/>
-                            </Paragraph>
-                        </RichTextBlock>
+                        <StackPanel>
+                            <RichTextBlock x:Name="RecentCoolRequest" Padding="5,10,5,15" SelectionHighlightColor="Green">
+                                <Paragraph FontSize="28">
+                                    <Run Text="{Binding}"/>
+                                </Paragraph>
+                            </RichTextBlock>
+                            <Button x:Name="ReCool" Click="ReCool_Click" Tag="{Binding}" ToolTipService.ToolTip="Re-Cool" Margin="5,0,0,5">
+                                <SymbolIcon Symbol="Refresh"/>
+                            </Button>
+                        </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
