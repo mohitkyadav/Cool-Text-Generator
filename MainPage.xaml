@@ -6,6 +6,7 @@
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:media="using:Windows.UI.Xaml.Media"
     mc:Ignorable="d"
     Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}">
 
@@ -54,7 +55,7 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" MinHeight="144"/>
             <RowDefinition Height="10" MinHeight="10"/>
@@ -69,21 +70,23 @@
             Grid.Row="0"
             Margin="0,30,0,0" Grid.RowSpan="2" HorizontalAlignment="Center" Width="900">
 
-            <controls:DropShadowPanel x:Name="TextBoxMainShadow" VerticalAlignment="Center" Padding="5,5,5,5" Margin="20,10,20,5" BlurRadius="10" ShadowOpacity="0.40"
-                          OffsetX="0" OffsetY="0" OffsetZ="1.0" Color="Black">
+            <controls:DropShadowPanel x:Name="TextBoxMainShadow" VerticalAlignment="Center"
+                                      Padding="5,5,5,5" Margin="20,10,20,5" BlurRadius="10" ShadowOpacity="0.10"
+                                      OffsetX="0" OffsetY="0" OffsetZ="1" Color="Black">
                 
                 <TextBox x:Name="TextBoxMain" PlaceholderText="Enter text here"
                     AutomationProperties.Name="TextBox"
                     FontSize="24"
+                    CornerRadius="10,10,10,10"
                     BorderBrush="Transparent"
                     KeyDown="TextBoxMain_KeyDown"
                     Background="{ThemeResource SystemControlAccentDark2AcrylicElementAccentDark2MediumHighBrush}"
                     HorizontalAlignment="Center" Height="48" Width="650" VerticalAlignment="Center" HorizontalContentAlignment="Center" Padding="5,5,5,5"
                     />
             </controls:DropShadowPanel>
-            <controls:DropShadowPanel x:Name="CoolButtonShadow" VerticalAlignment="Center" Margin="5,10,10,5" BlurRadius="10" HorizontalAlignment="Center" ShadowOpacity="0.30"
+            <controls:DropShadowPanel x:Name="CoolButtonShadow" VerticalAlignment="Center" Margin="5,10,10,5" BlurRadius="10" HorizontalAlignment="Center" ShadowOpacity="0.20"
                           OffsetX="0" OffsetY="0" OffsetZ="1.0" Color="Black">
-                <Button Click="CoolButton_Click" x:Name="CoolButton" Content="Click to 🌜⚽⚽👢" />
+                <Button Click="CoolButton_Click" x:Name="CoolButton" Content="Click to 🌜⚽⚽👢" CornerRadius="10,10,10,10" />
             </controls:DropShadowPanel>
         </StackPanel>
         
@@ -96,7 +99,7 @@
                 <ColumnDefinition Width="Auto" MinWidth="548"></ColumnDefinition>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            
+
             <ListView x:Name="CoolNameList"
                       ScrollViewer.VerticalScrollMode="Enabled"
                       ScrollViewer.VerticalScrollBarVisibility="Visible"
@@ -120,7 +123,7 @@
                                     <Run Text="{Binding Name}"></Run>
                                 </Paragraph>
                             </RichTextBlock>
-                            <Button x:Name="CopyCoolName" Click="CopyCoolName_Click" Tag="{Binding Name}" ToolTipService.ToolTip="Copy" Margin="5,0,0,5">
+                            <Button x:Name="CopyCoolName" Click="CopyCoolName_Click" Tag="{Binding Name}" CornerRadius="15,15,15,15" ToolTipService.ToolTip="Copy" Margin="5,0,0,5">
                                 <SymbolIcon Symbol="Copy"/>
                             </Button>
                         </StackPanel>
@@ -145,11 +148,13 @@
                           SelectionMode="Single"
                           HorizontalAlignment="Left"
                           HorizontalContentAlignment="Center" MinWidth="250">
+
                     <ListView.ItemContainerTransitions>
                         <TransitionCollection>
-                            <ContentThemeTransition />
+                            <EdgeUIThemeTransition/>
                         </TransitionCollection>
                     </ListView.ItemContainerTransitions>
+
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <StackPanel>
@@ -163,10 +168,10 @@
                                         <ColumnDefinition/>
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
-                                    <Button Grid.Column="0" x:Name="ReCool" Click="ReCool_Click" Tag="{Binding}" ToolTipService.ToolTip="Re-Cool" Margin="5,0,0,5" HorizontalAlignment="Left">
+                                    <Button Grid.Column="0" x:Name="ReCool" Click="ReCool_Click" Tag="{Binding}" ToolTipService.ToolTip="Re-Cool" Margin="5,0,0,5" HorizontalAlignment="Left" CornerRadius="15,15,15,15">
                                         <SymbolIcon Symbol="Refresh"/>
                                     </Button>
-                                    <Button Grid.Column="1" x:Name="RemoveAction" Click="RemoveAction_Click" Tag="{Binding}" ToolTipService.ToolTip="Remove" Margin="5,0,0,5" HorizontalAlignment="Left">
+                                    <Button Grid.Column="1" x:Name="RemoveAction" Click="RemoveAction_Click" Tag="{Binding}" ToolTipService.ToolTip="Remove" Margin="5,0,0,5" HorizontalAlignment="Left" CornerRadius="15,15,15,15">
                                         <SymbolIcon Symbol="Delete"/>
                                     </Button>
                                 </Grid>
@@ -175,7 +180,7 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </Grid>
-            
+
         </Grid>
     </Grid>
 </Page>
