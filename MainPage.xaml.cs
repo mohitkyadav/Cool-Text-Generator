@@ -35,7 +35,7 @@ namespace Cool_Text_Generator
             CoolNameList.ItemsSource = coolNames;
             RecentCoolNameList.ItemsSource = recentCoolNames;
             coolNames.Add(new CoolName("How to use?", "Just enter text in the box above 😄"));
-            recentCoolNames.Add("Recent 🕞");
+            recentCoolNames.Add("Sample Text");
         }
 
         Compositor _compositor = Window.Current.Compositor;
@@ -129,6 +129,11 @@ namespace Cool_Text_Generator
         private void ReCool_Click(object sender, RoutedEventArgs e)
         {
             CallCool(((Button)sender).Tag.ToString());
+        }
+
+        private void RemoveAction_Click(object sender, RoutedEventArgs e)
+        {
+            recentCoolNames.Remove(((Button)sender).Tag.ToString());
         }
     }
 }

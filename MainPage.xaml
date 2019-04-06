@@ -44,7 +44,7 @@
                         <Setter Target="TextBoxMain.Margin" Value="5,10,30,5"/>
                         <Setter Target="CoolNameList.MaxWidth" Value="480"/>
                         <Setter Target="HeaderStackPanel.Orientation" Value="Vertical"/>
-                        <Setter Target="RecentCoolNameList.Visibility" Value="Collapsed"/>
+                        <Setter Target="RecentActionsGrid.Visibility" Value="Collapsed"/>
                         <Setter Target="TextBoxMain.(FrameworkElement.Margin)">
                             <Setter.Value>
                                 <Thickness>0,10,0,5</Thickness>
@@ -119,37 +119,55 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <ListView x:Name="RecentCoolNameList"
-                      ScrollViewer.VerticalScrollMode="Enabled"
-                      ScrollViewer.VerticalScrollBarVisibility="Visible"
-                      MaxWidth="1080" CanDragItems="False"
-                      CanReorderItems="False"
-                      AllowDrop="True"
-                      Visibility="Visible"
-                      Grid.Column="1"
-                      SelectionMode="Single"
-                      HorizontalAlignment="Left"
-                      HorizontalContentAlignment="Center" Margin="20,0,0,85" MinWidth="250">
-                <ListView.ItemContainerTransitions>
-                    <TransitionCollection>
-                        <ContentThemeTransition />
-                    </TransitionCollection>
-                </ListView.ItemContainerTransitions>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel>
-                            <RichTextBlock x:Name="RecentCoolRequest" Padding="5,10,5,15" SelectionHighlightColor="Green">
-                                <Paragraph FontSize="28">
-                                    <Run Text="{Binding}"/>
-                                </Paragraph>
-                            </RichTextBlock>
-                            <Button x:Name="ReCool" Click="ReCool_Click" Tag="{Binding}" ToolTipService.ToolTip="Re-Cool" Margin="5,0,0,5">
-                                <SymbolIcon Symbol="Refresh"/>
-                            </Button>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+
+            <Grid x:Name="RecentActionsGrid" Grid.Column="1" Height="Auto" HorizontalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" FontSize="34" Margin="20,0,0,0">Recent</TextBlock>
+                <ListView x:Name="RecentCoolNameList"
+                          ScrollViewer.VerticalScrollMode="Enabled"
+                          ScrollViewer.VerticalScrollBarVisibility="Visible"
+                          MaxWidth="1080" CanDragItems="False"
+                          CanReorderItems="False"
+                          AllowDrop="True"
+                          Visibility="Visible"
+                          Grid.Row="1"
+                          SelectionMode="Single"
+                          HorizontalAlignment="Left"
+                          HorizontalContentAlignment="Center" MinWidth="250">
+                    <ListView.ItemContainerTransitions>
+                        <TransitionCollection>
+                            <ContentThemeTransition />
+                        </TransitionCollection>
+                    </ListView.ItemContainerTransitions>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <RichTextBlock x:Name="RecentCoolRequest" Padding="5,10,5,15" SelectionHighlightColor="Green">
+                                    <Paragraph FontSize="24">
+                                        <Run Text="{Binding}"/>
+                                    </Paragraph>
+                                </RichTextBlock>
+                                <Grid Width="100" HorizontalAlignment="Left">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Button Grid.Column="0" x:Name="ReCool" Click="ReCool_Click" Tag="{Binding}" ToolTipService.ToolTip="Re-Cool" Margin="5,0,0,5" HorizontalAlignment="Left">
+                                        <SymbolIcon Symbol="Refresh"/>
+                                    </Button>
+                                    <Button Grid.Column="1" x:Name="RemoveAction" Click="RemoveAction_Click" Tag="{Binding}" ToolTipService.ToolTip="Remove" Margin="5,0,0,5" HorizontalAlignment="Left">
+                                        <SymbolIcon Symbol="Delete"/>
+                                    </Button>
+                                </Grid>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+            
         </Grid>
     </Grid>
 </Page>
