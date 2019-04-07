@@ -84,9 +84,9 @@
                     HorizontalAlignment="Center" Height="48" Width="650" VerticalAlignment="Center" HorizontalContentAlignment="Center" Padding="5,5,5,5"
                     />
             </controls:DropShadowPanel>
-            <controls:DropShadowPanel x:Name="CoolButtonShadow" VerticalAlignment="Center" Margin="5,10,10,5" BlurRadius="10" HorizontalAlignment="Center" ShadowOpacity="0.20"
+            <controls:DropShadowPanel x:Name="CoolButtonShadow" VerticalAlignment="Center" Margin="5,10,10,5" BlurRadius="10" HorizontalAlignment="Center" ShadowOpacity="0.15"
                           OffsetX="0" OffsetY="0" OffsetZ="1.0" Color="Black">
-                <Button Click="CoolButton_Click" x:Name="CoolButton" Content="Click to 🌜⚽⚽👢" CornerRadius="10,10,10,10" />
+                <Button Click="CoolButton_Click" x:Name="CoolButton" Content="Click to 🌜⚽⚽👢" CornerRadius="10,10,10,10" Background="{ThemeResource SystemControlAccentDark2AcrylicElementAccentDark2MediumHighBrush}"/>
             </controls:DropShadowPanel>
         </StackPanel>
         
@@ -112,7 +112,7 @@
                       HorizontalContentAlignment="Center" MinWidth="400" Margin="25,0,0,75" Width="475">
                 <ListView.ItemContainerTransitions>
                     <TransitionCollection>
-                        <ContentThemeTransition />
+                        <EdgeUIThemeTransition />
                     </TransitionCollection>
                 </ListView.ItemContainerTransitions>
                 <ListView.ItemTemplate>
@@ -123,12 +123,26 @@
                                     <Run Text="{Binding Name}"></Run>
                                 </Paragraph>
                             </RichTextBlock>
-                            <controls:DropShadowPanel BlurRadius="10" ShadowOpacity="0.12" Margin="5,0,0,5"
-                                        OffsetX="0" OffsetY="0" OffsetZ="1.0" Color="Black">
-                                <Button x:Name="CopyCoolName" Click="CopyCoolName_Click" Tag="{Binding Name}" CornerRadius="15,15,15,15" ToolTipService.ToolTip="Copy">
-                                    <SymbolIcon Symbol="Copy"/>
-                                </Button>
-                            </controls:DropShadowPanel>
+                            
+                            <Grid Width="100" HorizontalAlignment="Left">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                            
+                                <controls:DropShadowPanel Grid.Column="0" BlurRadius="10" ShadowOpacity="0.12" Margin="5,0,0,5"
+                                            OffsetX="0" OffsetY="0" OffsetZ="1.0" Color="Black">
+                                    <Button x:Name="CopyCoolName" Click="CopyCoolName_Click" Tag="{Binding Name}" CornerRadius="15,15,15,15" ToolTipService.ToolTip="Copy">
+                                        <SymbolIcon Symbol="Copy"/>
+                                    </Button>
+                                </controls:DropShadowPanel>
+                                <controls:DropShadowPanel Grid.Column="1" BlurRadius="10" ShadowOpacity="0.12" Margin="5,0,0,5"
+                                            OffsetX="0" OffsetY="0" OffsetZ="1.0" Color="Black">
+                                    <Button x:Name="HelpCoolName" CornerRadius="15,15,15,15" ToolTipService.ToolTip="{Binding Type}">
+                                        <SymbolIcon Symbol="Help"/>
+                                    </Button>
+                                </controls:DropShadowPanel>
+                            </Grid>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
