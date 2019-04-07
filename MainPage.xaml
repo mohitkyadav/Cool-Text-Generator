@@ -61,7 +61,7 @@
             <RowDefinition Height="10" MinHeight="10"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-
+    
         <StackPanel
             x:Name="HeaderStackPanel"
             Orientation="Horizontal"
@@ -123,9 +123,12 @@
                                     <Run Text="{Binding Name}"></Run>
                                 </Paragraph>
                             </RichTextBlock>
-                            <Button x:Name="CopyCoolName" Click="CopyCoolName_Click" Tag="{Binding Name}" CornerRadius="15,15,15,15" ToolTipService.ToolTip="Copy" Margin="5,0,0,5">
-                                <SymbolIcon Symbol="Copy"/>
-                            </Button>
+                            <controls:DropShadowPanel BlurRadius="10" ShadowOpacity="0.12" Margin="5,0,0,5"
+                                        OffsetX="0" OffsetY="0" OffsetZ="1.0" Color="Black">
+                                <Button x:Name="CopyCoolName" Click="CopyCoolName_Click" Tag="{Binding Name}" CornerRadius="15,15,15,15" ToolTipService.ToolTip="Copy">
+                                    <SymbolIcon Symbol="Copy"/>
+                                </Button>
+                            </controls:DropShadowPanel>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -168,12 +171,18 @@
                                         <ColumnDefinition/>
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
-                                    <Button Grid.Column="0" x:Name="ReCool" Click="ReCool_Click" Tag="{Binding}" ToolTipService.ToolTip="Re-Cool" Margin="5,0,0,5" HorizontalAlignment="Left" CornerRadius="15,15,15,15">
-                                        <SymbolIcon Symbol="Refresh"/>
-                                    </Button>
-                                    <Button Grid.Column="1" x:Name="RemoveAction" Click="RemoveAction_Click" Tag="{Binding}" ToolTipService.ToolTip="Remove" Margin="5,0,0,5" HorizontalAlignment="Left" CornerRadius="15,15,15,15">
-                                        <SymbolIcon Symbol="Delete"/>
-                                    </Button>
+                                    <controls:DropShadowPanel BlurRadius="10" ShadowOpacity="0.12" Margin="5,0,0,5"
+                                        OffsetX="0" OffsetY="0" OffsetZ="1.0" Grid.Column="0" Color="Black">
+                                        <Button x:Name="ReCool" Click="ReCool_Click" Tag="{Binding}" ToolTipService.ToolTip="Re-Cool" HorizontalAlignment="Left" CornerRadius="15,15,15,15">
+                                            <SymbolIcon Symbol="Refresh"/>
+                                        </Button>
+                                    </controls:DropShadowPanel>
+                                    <controls:DropShadowPanel BlurRadius="10" ShadowOpacity="0.12" Margin="5,0,0,5"
+                                        OffsetX="0" OffsetY="0" OffsetZ="1.0" Grid.Column="1" Color="Black">
+                                        <Button x:Name="RemoveAction" Click="RemoveAction_Click" Tag="{Binding}" ToolTipService.ToolTip="Remove" HorizontalAlignment="Left" CornerRadius="15,15,15,15">
+                                            <SymbolIcon Symbol="Delete"/>
+                                        </Button>
+                                    </controls:DropShadowPanel>
                                 </Grid>
                             </StackPanel>
                         </DataTemplate>
