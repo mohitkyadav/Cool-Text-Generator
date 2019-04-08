@@ -11,7 +11,7 @@
     Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}">
 
     <Grid
-        MinWidth="600"
+        MinWidth="480"
         Padding="-30,0,0,0">
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="WindowState">
@@ -68,10 +68,10 @@
             Height="120"
             VerticalAlignment="Top"
             Grid.Row="0"
-            Margin="0,30,0,0" Grid.RowSpan="2" HorizontalAlignment="Center" Width="900">
+            Margin="5,30,0,0" Grid.RowSpan="2" HorizontalAlignment="Center" Width="900" MinWidth="480">
 
             <controls:DropShadowPanel x:Name="TextBoxMainShadow" VerticalAlignment="Center"
-                                      Padding="5,5,5,5" Margin="20,10,20,5" BlurRadius="10" ShadowOpacity="0.10"
+                                      Padding="5,5,5,5" Margin="25,10,20,5" BlurRadius="10" ShadowOpacity="0.10"
                                       OffsetX="0" OffsetY="0" OffsetZ="1" Color="Black">
                 
                 <TextBox x:Name="TextBoxMain" PlaceholderText="Enter text here"
