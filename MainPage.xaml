@@ -80,13 +80,13 @@
                     CornerRadius="10,10,10,10"
                     BorderBrush="Transparent"
                     KeyDown="TextBoxMain_KeyDown"
-                    Background="{ThemeResource SystemControlAccentDark2AcrylicElementAccentDark2MediumHighBrush}"
+                    Background="{ThemeResource SystemControlAltMediumLowAcrylicElementMediumBrush}"
                     HorizontalAlignment="Center" Height="48" Width="650" VerticalAlignment="Center" HorizontalContentAlignment="Center" Padding="5,5,5,5"
                     />
             </controls:DropShadowPanel>
             <controls:DropShadowPanel x:Name="CoolButtonShadow" VerticalAlignment="Center" Margin="5,10,10,5" BlurRadius="10" HorizontalAlignment="Center" ShadowOpacity="0.15"
                           OffsetX="0" OffsetY="0" OffsetZ="1.0" Color="Black">
-                <Button Click="CoolButton_Click" x:Name="CoolButton" Content="Click to 🌜⚽⚽👢" CornerRadius="10,10,10,10" Background="{ThemeResource SystemControlAccentDark2AcrylicElementAccentDark2MediumHighBrush}"/>
+                <Button Click="CoolButton_Click" x:Name="CoolButton" Content="Click to 🌜⚽⚽👢" CornerRadius="10,10,10,10" Background="{ThemeResource SystemControlAltMediumLowAcrylicElementMediumBrush}"/>
             </controls:DropShadowPanel>
         </StackPanel>
         
