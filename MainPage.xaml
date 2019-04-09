@@ -44,8 +44,8 @@
                         <AdaptiveTrigger MinWindowWidth="0"/>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="TextBoxMain.Width" Value="360"/>
-                        <Setter Target="TextBoxMainShadow.Width" Value="360"/>
+                        <Setter Target="TextBoxMain.Width" Value="420"/>
+                        <Setter Target="TextBoxMainShadow.Width" Value="420"/>
                         <Setter Target="TextBoxMainShadow.Margin" Value="20,10,30,5"/>
                         <Setter Target="CoolNameList.MaxWidth" Value="480"/>
                         <Setter Target="HeaderStackPanel.Orientation" Value="Vertical"/>
@@ -72,7 +72,7 @@
 
             <controls:DropShadowPanel x:Name="TextBoxMainShadow" VerticalAlignment="Center"
                                       Padding="5,5,5,5" Margin="25,10,20,5" BlurRadius="10" ShadowOpacity="0.10"
-                                      OffsetX="0" OffsetY="0" OffsetZ="1" Color="Black">
+                                      OffsetX="0" OffsetY="0" OffsetZ="1" Color="Black" HorizontalAlignment="Center">
                 
                 <TextBox x:Name="TextBoxMain" PlaceholderText="Enter text here"
                     AutomationProperties.Name="TextBox"
@@ -117,7 +117,7 @@
                 </ListView.ItemContainerTransitions>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel>
+                        <StackPanel Padding="0,0,0,10">
                             <RichTextBlock x:Name="CoolTextBlock" Padding="5,10,5,15" SelectionHighlightColor="Green">
                                 <Paragraph FontSize="28">
                                     <Run Text="{Binding Name}"></Run>
@@ -132,14 +132,30 @@
                             
                                 <controls:DropShadowPanel Grid.Column="0" BlurRadius="10" ShadowOpacity="0.12" Margin="5,0,0,5"
                                             OffsetX="0" OffsetY="0" OffsetZ="1.0" Color="Black">
-                                    <Button x:Name="CopyCoolName" Click="CopyCoolName_Click" Tag="{Binding Name}" CornerRadius="15,15,15,15" ToolTipService.ToolTip="Copy">
-                                        <SymbolIcon Symbol="Copy"/>
+                                    <Button
+                                        x:Name="CopyCoolName"
+                                        Padding="0,0,0,0"
+                                        Click="CopyCoolName_Click"
+                                        Tag="{Binding Name}"
+                                        CornerRadius="10,10,10,10"
+                                        Width="30"
+                                        Height="30"
+                                        ToolTipService.ToolTip="Copy">
+                                        <SymbolIcon Symbol="Copy" RenderTransformOrigin="0.5,0.5">
+                                            <SymbolIcon.RenderTransform>
+                                                <CompositeTransform ScaleX="0.7" ScaleY="0.7"/>
+                                            </SymbolIcon.RenderTransform>
+                                        </SymbolIcon>
                                     </Button>
                                 </controls:DropShadowPanel>
                                 <controls:DropShadowPanel Grid.Column="1" BlurRadius="10" ShadowOpacity="0.12" Margin="5,0,0,5"
                                             OffsetX="0" OffsetY="0" OffsetZ="1.0" Color="Black">
-                                    <Button x:Name="HelpCoolName" CornerRadius="15,15,15,15" ToolTipService.ToolTip="{Binding Type}">
-                                        <SymbolIcon Symbol="Help"/>
+                                    <Button x:Name="HelpCoolName" Padding="0,0,0,0" CornerRadius="10,10,10,10" ToolTipService.ToolTip="{Binding Type}" Width="30" Height="30">
+                                        <SymbolIcon Symbol="Help" RenderTransformOrigin="0.5,0.5">
+                                            <SymbolIcon.RenderTransform>
+                                                <CompositeTransform ScaleX="0.7" ScaleY="0.7"/>
+                                            </SymbolIcon.RenderTransform>
+                                        </SymbolIcon>
                                     </Button>
                                 </controls:DropShadowPanel>
                             </Grid>
@@ -174,7 +190,7 @@
 
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel>
+                            <StackPanel Padding="0,0,0,10">
                                 <RichTextBlock x:Name="RecentCoolRequest" Padding="5,10,5,15" SelectionHighlightColor="Green">
                                     <Paragraph FontSize="24">
                                         <Run Text="{Binding}"/>
@@ -187,14 +203,22 @@
                                     </Grid.ColumnDefinitions>
                                     <controls:DropShadowPanel BlurRadius="10" ShadowOpacity="0.12" Margin="5,0,0,5"
                                         OffsetX="0" OffsetY="0" OffsetZ="1.0" Grid.Column="0" Color="Black">
-                                        <Button x:Name="ReCool" Click="ReCool_Click" Tag="{Binding}" ToolTipService.ToolTip="Re-Cool" HorizontalAlignment="Left" CornerRadius="15,15,15,15">
-                                            <SymbolIcon Symbol="Refresh"/>
+                                        <Button x:Name="ReCool" Padding="0,0,0,0" Click="ReCool_Click" Tag="{Binding}" ToolTipService.ToolTip="Re-Cool" HorizontalAlignment="Left" CornerRadius="10,10,10,10" Width="30" Height="30">
+                                            <SymbolIcon Symbol="Copy" RenderTransformOrigin="0.5,0.5">
+                                                <SymbolIcon.RenderTransform>
+                                                    <CompositeTransform ScaleX="0.7" ScaleY="0.7"/>
+                                                </SymbolIcon.RenderTransform>
+                                            </SymbolIcon>
                                         </Button>
                                     </controls:DropShadowPanel>
                                     <controls:DropShadowPanel BlurRadius="10" ShadowOpacity="0.12" Margin="5,0,0,5"
                                         OffsetX="0" OffsetY="0" OffsetZ="1.0" Grid.Column="1" Color="Black">
-                                        <Button x:Name="RemoveAction" Click="RemoveAction_Click" Tag="{Binding}" ToolTipService.ToolTip="Remove" HorizontalAlignment="Left" CornerRadius="15,15,15,15">
-                                            <SymbolIcon Symbol="Delete"/>
+                                        <Button x:Name="RemoveAction" Padding="0,0,0,0" Click="RemoveAction_Click" Tag="{Binding}" ToolTipService.ToolTip="Remove" HorizontalAlignment="Left" CornerRadius="10,10,10,10" Width="30" Height="30">
+                                            <SymbolIcon Symbol="Delete" RenderTransformOrigin="0.5,0.5">
+                                                <SymbolIcon.RenderTransform>
+                                                    <CompositeTransform ScaleX="0.7" ScaleY="0.7"/>
+                                                </SymbolIcon.RenderTransform>
+                                            </SymbolIcon>
                                         </Button>
                                     </controls:DropShadowPanel>
                                 </Grid>
