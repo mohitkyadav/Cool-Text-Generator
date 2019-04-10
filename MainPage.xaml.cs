@@ -8,6 +8,7 @@ using Windows.ApplicationModel.DataTransfer;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Composition;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -141,8 +142,16 @@ namespace Cool_Text_Generator
             var dataPackage = new DataPackage();
             dataPackage.SetText(((Button)sender).Tag.ToString());
             Windows.ApplicationModel.DataTransfer.Clipboard.SetContent(dataPackage);
-            await Windows.System.Launcher.LaunchUriAsync(new Uri(@"steam://url/SteamIDMyProfile"));
-            //System.Diagnostics.Process.Start("explorer.exe", "steam://url/SteamIDMyProfile");
+            try
+            {
+                await Windows.System.Launcher.LaunchUriAsync(new Uri(@"steam://url/SteamIDMyProfile"));
+            }
+            catch(Exception ex)
+            {
+                var messageDialog = new MessageDialog("Steam not found");
+                System.Diagnostics.Debug.WriteLine(ex.ToString());
+                await messageDialog.ShowAsync();
+            }
         }
     }
 }
