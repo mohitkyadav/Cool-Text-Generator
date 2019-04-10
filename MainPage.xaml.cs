@@ -28,6 +28,7 @@ namespace Cool_Text_Generator
         private CoolNameAPI coolService = new CoolNameAPI();
         private ObservableCollection<CoolName> coolNames = new ObservableCollection<CoolName>();
         private ObservableCollection<string> recentCoolNames = new ObservableCollection<string>();
+        private Uri SteamIcon = new Uri("ms-appx:///Assets/steam-blue.png");
 
         public MainPage()
         {
