@@ -124,7 +124,7 @@
                                 </Paragraph>
                             </RichTextBlock>
                             
-                            <Grid Width="100" HorizontalAlignment="Left">
+                            <Grid Width="80" HorizontalAlignment="Left">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
@@ -196,7 +196,7 @@
                                         <Run Text="{Binding}"/>
                                     </Paragraph>
                                 </RichTextBlock>
-                                <Grid Width="100" HorizontalAlignment="Left">
+                                <Grid Width="80" HorizontalAlignment="Left">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition/>
                                         <ColumnDefinition/>
