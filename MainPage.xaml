@@ -124,8 +124,9 @@
                                 </Paragraph>
                             </RichTextBlock>
                             
-                            <Grid Width="80" HorizontalAlignment="Left">
+                            <Grid Width="120" HorizontalAlignment="Left">
                                 <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
@@ -149,6 +150,24 @@
                                     </Button>
                                 </controls:DropShadowPanel>
                                 <controls:DropShadowPanel Grid.Column="1" BlurRadius="10" ShadowOpacity="0.12" Margin="5,0,0,5"
+                                            OffsetX="0" OffsetY="0" OffsetZ="1.0" Color="Black">
+                                    <Button
+                                        x:Name="CoolNameToSteam"
+                                        Padding="0,0,0,0"
+                                        Click="CoolNameToSteam_Click"
+                                        Tag="{Binding Name}"
+                                        CornerRadius="10,10,10,10"
+                                        Width="30"
+                                        Height="30"
+                                        ToolTipService.ToolTip="Copy and update nick on Steam">
+                                        <Image Source="/Assets/steam-red.png" RenderTransformOrigin="0.5,0.5">
+                                            <Image.RenderTransform>
+                                                <CompositeTransform ScaleX="0.7" ScaleY="0.7"/>
+                                            </Image.RenderTransform>
+                                        </Image>
+                                    </Button>
+                                </controls:DropShadowPanel>
+                                <controls:DropShadowPanel Grid.Column="2" BlurRadius="10" ShadowOpacity="0.12" Margin="5,0,0,5"
                                             OffsetX="0" OffsetY="0" OffsetZ="1.0" Color="Black">
                                     <Button x:Name="HelpCoolName" Padding="0,0,0,0" CornerRadius="10,10,10,10" ToolTipService.ToolTip="{Binding Type}" Width="30" Height="30">
                                         <SymbolIcon Symbol="Help" RenderTransformOrigin="0.5,0.5">
@@ -204,7 +223,11 @@
                                     <controls:DropShadowPanel BlurRadius="10" ShadowOpacity="0.12" Margin="5,0,0,5"
                                         OffsetX="0" OffsetY="0" OffsetZ="1.0" Grid.Column="0" Color="Black">
                                         <Button x:Name="ReCool" Padding="0,0,0,0" Click="ReCool_Click" Tag="{Binding}" ToolTipService.ToolTip="Re-Cool" HorizontalAlignment="Left" CornerRadius="10,10,10,10" Width="30" Height="30">
-                                            <Image Source="/Assets/steam-blue.png" AutomationProperties.Name="Slice"/>
+                                            <SymbolIcon Symbol="Refresh" RenderTransformOrigin="0.5,0.5">
+                                                <SymbolIcon.RenderTransform>
+                                                    <CompositeTransform ScaleX="0.7" ScaleY="0.7"/>
+                                                </SymbolIcon.RenderTransform>
+                                            </SymbolIcon>
                                         </Button>
                                     </controls:DropShadowPanel>
                                     <controls:DropShadowPanel BlurRadius="10" ShadowOpacity="0.12" Margin="5,0,0,5"

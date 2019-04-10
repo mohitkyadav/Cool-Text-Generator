@@ -28,7 +28,6 @@ namespace Cool_Text_Generator
         private CoolNameAPI coolService = new CoolNameAPI();
         private ObservableCollection<CoolName> coolNames = new ObservableCollection<CoolName>();
         private ObservableCollection<string> recentCoolNames = new ObservableCollection<string>();
-        private Uri SteamIcon = new Uri("ms-appx:///Assets/steam-blue.png");
 
         public MainPage()
         {
@@ -135,6 +134,15 @@ namespace Cool_Text_Generator
         private void RemoveAction_Click(object sender, RoutedEventArgs e)
         {
             recentCoolNames.Remove(((Button)sender).Tag.ToString());
+        }
+
+        private async void CoolNameToSteam_Click(object sender, RoutedEventArgs e)
+        {
+            var dataPackage = new DataPackage();
+            dataPackage.SetText(((Button)sender).Tag.ToString());
+            Windows.ApplicationModel.DataTransfer.Clipboard.SetContent(dataPackage);
+            await Windows.System.Launcher.LaunchUriAsync(new Uri(@"steam://url/SteamIDMyProfile"));
+            //System.Diagnostics.Process.Start("explorer.exe", "steam://url/SteamIDMyProfile");
         }
     }
 }
