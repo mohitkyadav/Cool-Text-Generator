@@ -176,7 +176,9 @@
     <Content Include="Assets\Square150x150Logo.scale-150.png" />
     <Content Include="Assets\Square150x150Logo.scale-400.png" />
     <Content Include="Assets\steam-blue.png" />
+    <Content Include="Assets\steam-gray.png" />
     <Content Include="Assets\steam-red.png" />
+    <Content Include="Assets\steam-transparent.png" />
     <Content Include="Assets\StoreLogo.scale-100.png" />
     <Content Include="Assets\StoreLogo.scale-125.png" />
     <Content Include="Assets\StoreLogo.scale-150.png" />
