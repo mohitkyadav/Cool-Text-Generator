@@ -140,6 +140,7 @@
     </AppxManifest>
     <None Include="Cool Text Generator_StoreKey.pfx" />
     <None Include="Cool Text Generator_TemporaryKey.pfx" />
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\AppIcon.altform-unplated_targetsize-16.png" />
@@ -188,6 +189,9 @@
     <Content Include="Assets\Wide310x150Logo.scale-125.png" />
     <Content Include="Assets\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="Screenshots\demo1.png" />
+    <Content Include="Screenshots\demo2.png" />
+    <Content Include="Screenshots\demo3.png" />
     <None Include="Package.StoreAssociation.xml" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
