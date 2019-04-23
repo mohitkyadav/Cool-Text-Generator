@@ -27,4 +27,3 @@ Cool Text Gen is a UWP app that let's you transform plain text to **"c00l text"*
 
 [![Twitter URL](https://img.shields.io/badge/tweet-%40mohitkyadav123-blue.svg?style=for-the-badge&logo=twitter)](https://twitter.com/mohitkyadav123)
 [![Discord](https://img.shields.io/discord/522610943037931551.svg?color=%237289da&label=Chat&logo=discord&style=for-the-badge)](https://discord.gg/g6ha8pm)
-<iframe src="https://discordapp.com/widget?id=522610943037931551&theme=dark" width="350" height="320" allowtransparency="true" frameborder="0"></iframe>
